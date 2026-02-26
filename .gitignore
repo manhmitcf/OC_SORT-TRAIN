@@ -149,3 +149,6 @@ dance_detections/
 .vs
 .idea
 datasets/
+
+# Exception rules (Allow specific files even if ignored above)
+!yolox/data/datasets/__init__.py
