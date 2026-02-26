@@ -17,7 +17,11 @@
 # 2. Cài đặt thư viện
 !pip install loguru thop lap filterpy cython_bbox pandas xmltodict roboflow
 
-# 3. Cài đặt dự án (quan trọng)
+# 3. === BƯỚC QUAN TRỌNG: BIÊN DỊCH C++ EXTENSION ===
+# Lệnh này sẽ build module _C.so cần thiết cho việc evaluation
+!python setup.py build_ext --inplace
+
+# 4. Cài đặt dự án (quan trọng)
 !pip install -e . --no-build-isolation
 ```
 
