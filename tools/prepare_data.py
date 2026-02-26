@@ -80,7 +80,7 @@ def download_and_prepare():
         # Thay thế bằng API key của bạn nếu cần
         rf = Roboflow(api_key="7QSUEERZ8yV6mIjL8oiv")
         project = rf.workspace("ok-vblps").project("dat_labeling")
-        version = project.version(8)
+        version = project.version(10)
         # Tải về với định dạng COCO
         dataset = version.download("coco")
     except Exception as e:
