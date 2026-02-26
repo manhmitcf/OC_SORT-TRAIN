@@ -33,11 +33,14 @@ Script `tools/prepare_data.py` đã được tích hợp sẵn để tải từ 
 File cấu hình `exps/example/mot/custom_finetune.py` đã được thiết lập sẵn cho Kaggle (Input size 800x1440).
 
 ```python
-# 1. Tải weights gốc
-!mkdir -p pretrained
-!wget -O pretrained/ocsort_x_mot20.pth.tar https://github.com/noahcao/OC_SORT/releases/download/v0.1/ocsort_x_mot20.pth.tar
+# 1. Cài đặt gdown để tải file từ Google Drive
+!pip install gdown
 
-# 2. Chạy Train
+# 2. Tải pre-trained weights từ link Google Drive (thêm --fuzzy để tải ổn định hơn)
+!mkdir -p pretrained
+!gdown --id 1RG8aCO5Kxi_XF_Rbfu58bvDcSdR6_2DU -O pretrained/ocsort_x_mot20.pth.tar --fuzzy
+
+# 3. Chạy Train
 !python tools/train.py -f exps/example/mot/custom_finetune.py -d 1 -b 8 --fp16 -o -c pretrained/ocsort_x_mot20.pth.tar
 ```
 
